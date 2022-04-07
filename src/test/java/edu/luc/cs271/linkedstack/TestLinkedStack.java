@@ -25,20 +25,15 @@ public class TestLinkedStack {
   }
 
   @Test
-  public void testInitial() {
+  public void testInitialPop() {
     assertTrue(fixture.isEmpty());
-    try {
-      fixture.pop();
-      fail("java.util.NoSuchElementException expected");
-    } catch (final NoSuchElementException ex) {
-      // exception occurred => all good
-    }
-    try {
-      fixture.peek();
-      fail("java.util.NoSuchElementException expected");
-    } catch (final NoSuchElementException ex) {
-      // exception occurred => all good
-    }
+    fixture.pop();
+  }
+
+  @Test(expected = NoSuchElementException.class)
+  public void testInitialPeek() {
+    assertTrue(fixture.isEmpty());
+    fixture.peek();
   }
 
   @Test
